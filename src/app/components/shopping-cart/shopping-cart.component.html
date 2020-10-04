@@ -1,0 +1,61 @@
+<h1>Shopping Cart</h1>
+<ng-container>
+  <div class="row justify-content-between">
+    <div class="col-sm-6 text-center">
+      <p>You have {{ totalItemsQuantity }} items in your shopping cart</p>
+    </div>
+    <div class="col-sm-3 text-center">
+      <button *ngIf="totalItemsQuantity > 0" class="btn btn-light btn-sm" (click)="onDeleteAllItems()">Clear Shopping Cart</button>
+    </div>
+  </div>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="text-left">Product</th>
+        <th class="text-center">Quantity</th>
+        <th class="text-right">Price</th>
+        <th class="text-right">Total</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of cartItems; let i = index">
+        <td class="text-center">
+          <img class="img-thumbnail rounded-circle" style="width: 50px; height: 50px;" [src]="item.imageUrl" alt="images Products">
+        </td>
+        <td class="text-left"> {{ item.title }} </td>
+        <td class="text-center" style="width: 15em;"> <app-product-quantity [item]="item" [shoppingCart]="shoppingCart"></app-product-quantity> </td>
+        <td class="text-right"> {{ item.price | currency:'USD' }} </td>
+        <td class="text-right"> {{ totalItemPrice[i] | currency:'USD' }} </td>
+        <td class="text-center">
+          <a role="button" (click)="onDeleteProduct(item)">
+            <svg width="1.2em" height="1.2em" style="color: red; cursor: pointer;" viewBox="0 0 16 16" class="bi bi-x-square-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+              <path fill-rule="evenodd" d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2zm3.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z"/>
+            </svg>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <th class="text-left">Total</th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th class="text-right"> {{ totalItemsPrice | currency:'USD' }} </th>
+        <th></th>
+      </tr>
+    </tfoot>
+  </table>
+  <div class="row justify-content-end">
+    <div class="col-sm-3 text-center">
+      <a *ngIf="totalItemsQuantity > 0" role="button" class="btn btn-success" [routerLink]="['/check-out']">Check Out</a>
+    </div>
+  </div>
+
+</ng-container>
+
+
+
+

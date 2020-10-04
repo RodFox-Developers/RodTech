@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+  <div class="col-lg-6">
+    <h1>Shipping Address</h1>
+
+    <form #f="ngForm" (ngSubmit)="onPlacePrder(f)">
+      <div class="form-group">
+        <label for="inputAddress1">Address*</label>
+        <input #inputAddress1="ngModel" required ngModel name="inputAddress1" type="text" class="form-control" id="inputAddress1" placeholder="Line 1">
+        <div *ngIf="inputAddress1.invalid && inputAddress1.touched"  class="alert alert-danger">This field is required.</div>
+      </div>
+      <div class="form-group">
+        <input ngModel name="inputAddress2" type="text" class="form-control" id="inputAddress2" placeholder="Line 2">
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-5">
+          <label for="inputCity">City*</label>
+          <input #inputCity="ngModel" required ngModel name="inputCity" type="text" class="form-control" id="inputCity">
+          <div *ngIf="inputCity.invalid && inputCity.touched"  class="alert alert-danger">This field is required.</div>
+        </div>
+        <div class="form-group col-md-5">
+          <label for="inputCountry">Country*</label>
+          <input #inputCountry="ngModel" required ngModel name="inputCountry" type="text" class="form-control" id="inputCountry">
+          <div *ngIf="inputCountry.invalid && inputCountry.touched"  class="alert alert-danger">This field is required.</div>
+        </div>
+        <div class="form-group col-md-2">
+          <label for="inputZip">Zip*</label>
+          <input #inputZip="ngModel" required ngModel name="inputZip" type="text" class="form-control" id="inputZip">
+          <div *ngIf="inputZip.invalid && inputZip.touched"  class="alert alert-danger">This field is required.</div>
+        </div>
+      </div>
+      <button [disabled]="f.invalid" type="submit" class="btn btn-primary">Place Order</button>
+    </form>
+  </div>
+  <div class="col-lg-6">
+    <app-order-summary [cartItems]="cartItems"></app-order-summary>
+  </div>
+</div>
+
+

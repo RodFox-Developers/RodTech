@@ -1,0 +1,20 @@
+<div class="card sticky-top my-2" style="width: 18rem;">
+  <div class="list-group list-group-flush">
+    <a
+    [routerLink]="['/products']"
+    [class.active]="!category"
+    class="list-group-item list-group-item-action"
+    style="cursor: pointer;">
+      All Categories
+    </a>
+    <a
+    [routerLink]="['/products']"
+    [class.active]="category === c.name"
+    [queryParams]="{category: c.name}"
+    *ngFor="let c of categories$ | async"
+    class="list-group-item list-group-item-action"
+    style="cursor: pointer;">
+      {{ c.name }}
+    </a>
+  </div>
+</div>

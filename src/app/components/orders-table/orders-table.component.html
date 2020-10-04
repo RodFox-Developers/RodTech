@@ -1,0 +1,22 @@
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">User Id</th>
+      <th scope="col">Order date</th>
+      <th scope="col">Order Id</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let order of getOrders()" >
+      <td> {{ order.user.name }} </td>
+      <td> {{ order.user.uid }} </td>
+      <td> {{ order.createdDate | date:'medium' }} </td>
+      <td> {{ order.$key }} </td>
+      <td>
+        <a>View order</a>
+      </td>
+    </tr>
+  </tbody>
+</table>

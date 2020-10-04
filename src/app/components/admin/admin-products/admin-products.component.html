@@ -1,0 +1,31 @@
+<p>
+  <a routerLink="/admin/products/new" class="btn btn-primary">Add New Product</a>
+</p>
+
+<p>
+  <input #query (keyup)="productFilter(query.value)" type="text" class="form-control" placeholder="Search...">
+</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Product</th>
+      <th>Category</th>
+      <th>Price</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of filteredProducts | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+      <td> {{ product.title }} </td>
+      <td> {{ product.category }} </td>
+      <td> {{ product.price | currency:'USD' }} </td>
+      <td>
+        <a [routerLink]="['/admin/products/', product.$key]">Edit</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<div>
+  <ngb-pagination *ngIf="filteredProducts"  [collectionSize]="filteredProducts.length" [pageSize]="pageSize" [(page)]="page" [directionLinks]="false"></ngb-pagination>
+</div>
