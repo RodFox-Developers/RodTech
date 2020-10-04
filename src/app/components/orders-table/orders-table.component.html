@@ -1,8 +1,8 @@
 <table class="table table-striped">
   <thead>
     <tr>
-      <th scope="col">Name</th>
-      <th scope="col">User Id</th>
+      <th *ngIf="showUserTable" scope="col">Name</th>
+      <th *ngIf="showUserTable" scope="col">User Id</th>
       <th scope="col">Order date</th>
       <th scope="col">Order Id</th>
       <th scope="col"></th>
@@ -10,8 +10,8 @@
   </thead>
   <tbody>
     <tr *ngFor="let order of getOrders()" >
-      <td> {{ order.user.name }} </td>
-      <td> {{ order.user.uid }} </td>
+      <td *ngIf="showUserTable"> {{ order.user.name }} </td>
+      <td *ngIf="showUserTable"> {{ order.user.uid }} </td>
       <td> {{ order.createdDate | date:'medium' }} </td>
       <td> {{ order.$key }} </td>
       <td>

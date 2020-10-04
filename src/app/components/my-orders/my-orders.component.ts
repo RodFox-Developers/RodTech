@@ -16,6 +16,7 @@ export class MyOrdersComponent implements OnInit {
 
   orders: Order[] = [];
   user: AppUser = null;
+  showUserTable: boolean = false;
 
   constructor(
     private ordersService: OrdersService,

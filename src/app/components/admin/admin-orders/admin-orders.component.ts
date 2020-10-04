@@ -15,6 +15,7 @@ export class AdminOrdersComponent implements OnInit {
 
   adminOrders: Order[] = [];
   adminUser: AppUser = null;
+  showUserTable: boolean = true;
 
   constructor(
     private ordersService: OrdersService,

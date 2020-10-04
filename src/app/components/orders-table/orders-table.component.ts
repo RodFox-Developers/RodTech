@@ -12,6 +12,7 @@ export class OrdersTableComponent {
 
   @Input() orders: Order[] = [];
   @Input() adminOrders: Order[];
+  @Input() showUserTable: boolean;
 
 
   getOrders() {
