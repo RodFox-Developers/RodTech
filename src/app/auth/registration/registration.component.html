@@ -1,7 +1,19 @@
 <div class="row p-5 justify-content-center">
   <div class="col-5 border p-5">
-    <h3>Login</h3>
+    <h3>Sign Up</h3>
     <form class="mt-4" #form='ngForm' (ngSubmit)="onSubmit(form)">
+      <div class="form-group">
+        <label for="firstName">First Name</label>
+        <input required #firstName="ngModel" ngModel name="firstName" type="text" class="form-control" id="firstName">
+        <div class="alert alert-danger" *ngIf="firstName.touched && firstName.invalid" >
+          First Name is required.
+        </div>
+        <label for="lastName">Last Name</label>
+        <input required #lastName="ngModel" ngModel name="lastName" type="text" class="form-control" id="lastName">
+        <div class="alert alert-danger" *ngIf="lastName.touched && lastName.invalid" >
+          Last Name is required.
+        </div>
+      </div>
       <div class="form-group">
         <label for="inputEmail">Email address</label>
         <input required #inputEmail="ngModel" ngModel name="inputEmail" type="email" class="form-control" id="inputEmail" aria-describedby="inputEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">
@@ -18,15 +30,11 @@
           <div *ngIf="inputPassword.errors.pattern" >Password must be at least 6 chars, 1 Capital Letter and 1 number. </div>
         </div>
       </div>
-      <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Login</button>
+
+      <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Sign Up</button>
     </form>
 
-    <button class="btn btn-outline-primary btn-block my-5" (click)="onGoogleLogin()"><i class="fab fa-google mr-3"></i>Login with Google</button>
-
-    <p>No account? <a role="button" class="text-primary" [routerLink]="['/signup']"><strong>create one here</strong></a></p>
-
+    <button class="btn btn-outline-primary btn-block my-5" (click)="onGoogleLogin()"><i class="fab fa-google mr-3"></i>Sign Up with Google</button>
+    <a role="button" class="text-primary" [routerLink]="['/login']"><strong>Go to Login</strong></a>
   </div>
 </div>
-
-
-

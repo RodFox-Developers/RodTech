@@ -30,6 +30,7 @@ import { ProductQuantityComponent } from './components/product-quantity/product-
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 import { OrdersTableComponent } from './components/orders-table/orders-table.component';
 import { FooterComponent } from './shared/footer/footer.component';
+import { RegistrationComponent } from './auth/registration/registration.component';
 
 
 
@@ -55,7 +56,8 @@ import { FooterComponent } from './shared/footer/footer.component';
     ProductQuantityComponent,
     OrderSummaryComponent,
     OrdersTableComponent,
-    FooterComponent
+    FooterComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,

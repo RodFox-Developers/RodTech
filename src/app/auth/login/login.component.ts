@@ -15,6 +15,7 @@ export class LoginComponent {
   }
 
   onSubmit(form) {
-    console.log(form.value);
+    this.auth.loginWithEmailPassword(form.value);
+    form.reset();
   }
 }

@@ -17,10 +17,15 @@ export class UserService {
     }, {merge: true}); */
 
     //to use Fire Realtime Database with AngularFireDatabase
+
     this.db.object('/users/' + user.uid).update({
       name: user.displayName,
       email: user.email
     });
+
+
+
+
   }
 
   getUser(uid: string): AngularFireObject<AppUser> {

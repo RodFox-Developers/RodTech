@@ -24,6 +24,26 @@ export class AuthService {
     this.user$ = afAuth.authState;
   }
 
+  createUserWithEmailPassword(user) {
+    this.afAuth.createUserWithEmailAndPassword(user.inputEmail, user.inputPassword)
+      .then(userCredential => {
+
+        userCredential.user.updateProfile({
+          displayName: user.firstName + ' ' + user.lastName
+        });
+        this.afAuth.signOut();
+        localStorage.removeItem('returnUrl');
+        this.router.navigate(['/login']);
+
+      });
+  }
+
+  loginWithEmailPassword(user) {
+    const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
+    localStorage.setItem('returnUrl', returnUrl);
+    this.afAuth.signInWithEmailAndPassword(user.inputEmail, user.inputPassword);
+  }
+
   login() {
     const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl);
