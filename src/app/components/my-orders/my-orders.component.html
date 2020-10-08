@@ -1,2 +1,8 @@
 <h1>My Orders</h1>
 <app-orders-table [showUserTable]="showUserTable" [orders]="orders"></app-orders-table>
+
+<div class="row my-5">
+  <div class="col-12 text-center">
+    <a [routerLink]="['/products']" [queryParams]="{category: 'Laptops'}" style="cursor: pointer;"><img src="https://www.evetech.co.za/repository/ProductImages/hp-ryzen-7-laptop-deals-730px-v2.jpg" alt="laptop" class="img-fluid"></a>
+  </div>
+</div>

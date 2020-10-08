@@ -16,11 +16,5 @@
     {
       "path": "./e2e/tsconfig.json"
     }
-  ],
-  "baseUrl": "./src",
-  "paths": {
-    "shared/*": [
-      "app/shared/*"
-    ]
-  }
+  ]
 }

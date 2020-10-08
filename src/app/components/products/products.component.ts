@@ -2,7 +2,7 @@ import { ProductsService } from './../../services/products.service';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Product } from 'src/app/interfaces/product.interface';
 import { ActivatedRoute } from '@angular/router';
-import { switchMap } from 'rxjs/operators';
+import { switchMap, take } from 'rxjs/operators';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
 import { Subscription } from 'rxjs';
 
@@ -26,6 +26,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
 
     this.productsService.getProducts()
       .pipe(
+        take(1),
         switchMap(p => {
         this.products = p;
         return this.route.queryParamMap;

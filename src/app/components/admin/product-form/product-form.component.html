@@ -41,6 +41,19 @@
           <div *ngIf="imageUrl.errors.url" >Please enter a valid url.</div>
         </div>
       </div>
+      <div class="form-group">
+        <label for="mainDescription">Main Description</label>
+        <textarea required #mainDescription="ngModel" [(ngModel)]="product.mainDescription" name="mainDescription" class="form-control" id="mainDescription" rows="2"></textarea>
+        <div class="alert alert-danger" *ngIf="mainDescription.touched && mainDescription.invalid" >
+          Main Description is required.
+        </div>
+
+        <label for="description">Description</label>
+        <textarea required #description="ngModel" [(ngModel)]="product.description" name="description" class="form-control" id="description" rows="3"></textarea>
+        <div class="alert alert-danger" *ngIf="description.touched && description.invalid" >
+          Description is required.
+        </div>
+      </div>
       <button [disabled]="f.invalid" type="submit" class="btn btn-primary">Submit</button>
       <button (click)="onDeleteProduct()" type="button" class="btn btn-danger mx-3">Delete</button>
     </form>

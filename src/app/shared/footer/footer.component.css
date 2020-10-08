@@ -1,0 +1,11 @@
+.footer, a {
+  color: white;
+}
+
+.footer a, .row a {
+  cursor: pointer;
+}
+
+.row li {
+  list-style-type: none;
+}

@@ -1,0 +1,11 @@
+a {
+  cursor: pointer;
+}
+
+.category-card p {
+  text-transform: uppercase;
+}
+
+.category-card img {
+  height: 8.1rem;
+}

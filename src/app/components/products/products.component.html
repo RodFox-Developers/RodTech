@@ -1,9 +1,13 @@
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-lg-3">
     <app-product-filter [category]="category"></app-product-filter>
   </div>
-  <div class="col-md-8">
+  <div class="col-md-9">
     <div class="row">
+      <div class="col-lg-12">
+        <img src="https://www.laptopsdirect.co.uk/files/images/ld/get-ready-2019-gaming-release-landing-header-2.jpg" alt="laptop" class="img-fluid">
+      </div>
+
       <ng-container *ngFor="let p of filteredProducts; let i=index">
         <div class="col">
           <app-product-card [product]="p" [showAddBtn]="true" [shoppingCart]="shoppingCart"></app-product-card>

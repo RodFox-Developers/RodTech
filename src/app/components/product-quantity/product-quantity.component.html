@@ -1,9 +1,9 @@
 <div class="row no-gutters">
   <div class="col-2">
-    <button class="btn btn-secondary btn-block" (click)="onRemoveProduct()" [disabled]="showQuantity() === 0" >-</button>
+    <button class="btn btn-success btn-block" (click)="onRemoveProduct()" [disabled]="showQuantity() === 0" >-</button>
   </div>
   <div class="col text-center"><p style="height: 100%;">{{ showQuantity() }} items in cart</p></div>
   <div class="col-2">
-    <button class="btn btn-secondary btn-block" (click)="onAddProduct()">+</button>
+    <button class="btn btn-success btn-block" (click)="onAddProduct()">+</button>
   </div>
 </div>

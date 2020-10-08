@@ -14,4 +14,7 @@ export class LoginComponent {
     this.auth.login();
   }
 
+  onSubmit(form) {
+    console.log(form.value);
+  }
 }

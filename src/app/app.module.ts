@@ -1,3 +1,4 @@
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { environment } from './../environments/environment';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -20,7 +21,6 @@ import { AdminOrdersComponent } from './components/admin/admin-orders/admin-orde
 import { LoginComponent } from './auth/login/login.component';
 import { LogoutComponent } from './auth/logout/logout.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductFormComponent } from './components/admin/product-form/product-form.component';
 import { FormsModule } from '@angular/forms';
 import { CustomFormsModule } from 'ng2-validation';
@@ -29,6 +29,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
 import { ProductQuantityComponent } from './components/product-quantity/product-quantity.component';
 import { OrderSummaryComponent } from './components/order-summary/order-summary.component';
 import { OrdersTableComponent } from './components/orders-table/orders-table.component';
+import { FooterComponent } from './shared/footer/footer.component';
 
 
 
@@ -53,7 +54,8 @@ import { OrdersTableComponent } from './components/orders-table/orders-table.com
     ProductCardComponent,
     ProductQuantityComponent,
     OrderSummaryComponent,
-    OrdersTableComponent
+    OrdersTableComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,
@@ -62,8 +64,8 @@ import { OrdersTableComponent } from './components/orders-table/orders-table.com
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule,
-    NgbModule,
-    CustomFormsModule
+    CustomFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]

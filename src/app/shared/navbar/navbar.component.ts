@@ -1,7 +1,7 @@
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
-import { AuthService } from './../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { AppUser } from 'src/app/interfaces/app-user';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
@@ -12,8 +12,11 @@ export class NavbarComponent implements OnInit {
 
   appUser: AppUser;
   totalItemsQuantity: number = 0;
+  public isMenuCollapsed = true;
 
-  constructor(private auth: AuthService, private shopCartService: ShoppingCartService) {
+  constructor(
+    private auth: AuthService,
+    private shopCartService: ShoppingCartService) {
   }
 
   async ngOnInit() {

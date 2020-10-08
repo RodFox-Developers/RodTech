@@ -53,9 +53,20 @@
       <a *ngIf="totalItemsQuantity > 0" role="button" class="btn btn-success" [routerLink]="['/check-out']">Check Out</a>
     </div>
   </div>
-
 </ng-container>
 
+<div class="row mt-5 justify-content-around">
+  <div class="col-lg-5">
+    <a [routerLink]="['/products']">
+      <img class="img-fluid" src="https://www.laptopsdirect.co.uk/files/images/ld/LD-Team-Group-Banner.jpg" alt="tablet">
+    </a>
+  </div>
+  <div class="col-lg-5">
+    <a [routerLink]="['/products']" [queryParams]="{category: 'Storage'}">
+      <img class="img-fluid" src="https://www.laptopsdirect.co.uk/files/images/ld/LD-Laptop-Upgrades.jpg" alt="laptop">
+    </a>
+  </div>
+</div>
 
 
 
