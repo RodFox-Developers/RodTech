@@ -32,9 +32,6 @@ import { OrdersTableComponent } from './components/orders-table/orders-table.com
 import { FooterComponent } from './shared/footer/footer.component';
 import { RegistrationComponent } from './auth/registration/registration.component';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,

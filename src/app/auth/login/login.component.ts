@@ -8,14 +8,16 @@ import { Component } from '@angular/core';
 })
 export class LoginComponent {
 
+  error;
+
   constructor(private auth: AuthService) { }
 
   onGoogleLogin() {
-    this.auth.login();
+    this.auth.login().catch(error => this.error = error);
   }
 
   onSubmit(form) {
-    this.auth.loginWithEmailPassword(form.value);
+    this.auth.loginWithEmailPassword(form.value).catch(error => this.error = error);
     form.reset();
   }
 }

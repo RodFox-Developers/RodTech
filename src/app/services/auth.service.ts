@@ -19,13 +19,12 @@ export class AuthService {
     private afAuth: AngularFireAuth,
     private route: ActivatedRoute,
     private router: Router,
-    private userService: UserService,
-    ) {
+    private userService: UserService) {
     this.user$ = afAuth.authState;
   }
 
   createUserWithEmailPassword(user) {
-    this.afAuth.createUserWithEmailAndPassword(user.inputEmail, user.inputPassword)
+    return this.afAuth.createUserWithEmailAndPassword(user.inputEmail, user.inputPassword)
       .then(userCredential => {
 
         userCredential.user.updateProfile({
@@ -35,19 +34,28 @@ export class AuthService {
         localStorage.removeItem('returnUrl');
         this.router.navigate(['/login']);
 
+      })
+      .catch(error => {
+        throw error;
       });
   }
 
   loginWithEmailPassword(user) {
     const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl);
-    this.afAuth.signInWithEmailAndPassword(user.inputEmail, user.inputPassword);
+    return this.afAuth.signInWithEmailAndPassword(user.inputEmail, user.inputPassword)
+      .catch(error => {
+        throw error;
+      });
   }
 
   login() {
     const returnUrl = this.route.snapshot.queryParamMap.get('returnUrl') || '/';
     localStorage.setItem('returnUrl', returnUrl);
-    this.afAuth.signInWithRedirect(new firebase.auth.GoogleAuthProvider());
+    return this.afAuth.signInWithRedirect(new firebase.auth.GoogleAuthProvider())
+      .catch(error => {
+        throw error;
+      });
   }
 
   logout() {

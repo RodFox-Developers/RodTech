@@ -2,6 +2,7 @@
   <div class="col-5 border p-5">
     <h3>Login</h3>
     <form class="mt-4" #form='ngForm' (ngSubmit)="onSubmit(form)">
+      <div *ngIf="error"  class="alert alert-danger"> {{ error }} </div>
       <div class="form-group">
         <label for="inputEmail">Email address</label>
         <input required #inputEmail="ngModel" ngModel name="inputEmail" type="email" class="form-control" id="inputEmail" aria-describedby="inputEmail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$">

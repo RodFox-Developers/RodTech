@@ -8,14 +8,16 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegistrationComponent {
 
+  error;
+
   constructor(private auth: AuthService) { }
 
   onGoogleLogin() {
-    this.auth.login();
+    this.auth.login().catch(error => this.error = error);
   }
 
   onSubmit(form) {
-    this.auth.createUserWithEmailPassword(form.value);
+    this.auth.createUserWithEmailPassword(form.value).catch(error => this.error = error);
     form.reset();
   }
 
